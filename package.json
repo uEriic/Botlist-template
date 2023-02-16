@@ -1,0 +1,15 @@
+{
+  "name": "botlist-template",
+  "version": "0.0.1",
+  "description": "Template público para bot de botlist.",
+  "main": "index.ts",
+  "repository": "https://github.com/uEriic/Botlist-template.git",
+  "author": "uEriic <ueriic0@gmail.com>",
+  "license": "GLPv3",
+  "private": false,
+  "dependencies": {
+    "aoi.js": "^6.1.0",
+    "aoi.parser": "^1.2.1",
+    "dotenv": "^16.0.3"
+  }
+}
