@@ -4,6 +4,7 @@ module.exports = {
     totalBots: 0,
     blacklist: false,
     votes: 0,
+    botsQueue: "",
     //Informações do bot
     botID: "",
     botLang: "",
