@@ -80,10 +80,10 @@ aoi.db@^1.0.0:
   dependencies:
     tiny-typed-emitter "^2.1.0"
 
-aoi.js@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/aoi.js/-/aoi.js-6.1.0.tgz#40625daedc006b170fff39393ad2549317a9a63c"
-  integrity sha512-NqiJIInbjpHZoM8zOORsH9ONeWoHdCK5FjENMeI7kG4g1pk+0W67lxOuQikow72QFHhKyVFMw47Du+z3G2y6Cg==
+aoi.js@^6.1.1:
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/aoi.js/-/aoi.js-6.1.1.tgz#6f2734ca9db4b03f2e9302e33371509af51526dd"
+  integrity sha512-QGMk9MQX/FL7ZMAgTIHc0lU5IeTiRilfnTH0cFeU1U9Gs3srqmn/Lx23ESN650wwDkqzr04eq3+Y7F6nprcUqg==
   dependencies:
     aoi.db "^1.0.0"
     axios "^0.24.0"

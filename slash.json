@@ -1,0 +1,26 @@
+[{
+    "name": "vip",
+    "description": "Seta um vip a alguém.",
+    "type": 2,
+    "options": [{
+        "name": "usuario",
+        "description": "Seta um vip a um usuário.",
+        "type": 1,
+        "options": [{
+            "name": "user",
+            "description": "Marque um usuário.",
+            "type": 6,
+            "required": true
+        }]
+    }, {
+        "name": "bot",
+        "description": "Seta um vip a um bot.",
+        "type": 1,
+        "options": [{
+            "name": "bot",
+            "description": "Marque um bot.",
+            "type": 6,
+            "required": true
+        }]
+    }]
+}]

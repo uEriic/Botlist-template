@@ -13,6 +13,12 @@ module.exports = {
     botOwner: "",
     botVip: false,
     //Informações do usuário
+    notas: "Nada foi informado.",    
     vip: false,
-    coins: 0
+    coins: 0,
+    analises: 0,
+    xp: 0,
+    reqxp: 700,
+    lvl: 1,
+    mensagens: 0
 }

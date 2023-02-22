@@ -2,15 +2,28 @@ module.exports = [{
     type: "interaction",
     prototype: "slash",
     name: "addbot",
+    $if: "old",
     code: `
     $interactionReply[<@$authorID>;{newEmbed:{title:<a:Prints_dark:1075957686518157392> | Verifique os dados...}{field:Nome\\::\`$userTag[$getUserVar[botID]]\`:yes}{field:ID\\::\`$getUserVar[botID]\`:yes}{field:Linguagem\\::\`$replaceText[$replaceText[$replaceText[$replaceText[$getUserVar[botLang];aoijs;Aoi.js];djs;Discord.js];dpy;Discord.py];bdfd;Bot Designer For Discord]\`:yes}{field:Prefixo\\::\`$getUserVar[botPrefix]\`:yes}{field:Descrição\\::\`$getUserVar[botDesc]\`:yes}{color:#2b2d31}{thumbnail:$userAvatar[$getUserVar[botID]]}{timestamp}};{actionRow:{button:Enviar:success:enviarBot:false:✅}{button:Cancelar:danger:cancelarEnvio:false:❎}};;all;true]
     
+    $setUserVar[botID;$slashOption[id];$slashOption[id]]
+    $setUserVar[botLang;$slashOption[linguagem];$slashOption[id]]
+    $setUserVar[botPrefix;$slashOption[prefixo];$slashOption[id]]
+    $setUserVar[botOwner;$authorID;$slashOption[id]]
+
     $setUserVar[botID;$slashOption[id]]
     $setUserVar[botLang;$slashOption[linguagem]]
     $setUserVar[botPrefix;$slashOption[prefixo]]
-    $if[$slashOption[descrição]!=;$setUserVar[botDesc;$slashOption[descrição]];$setUserVar[botDesc;$getVar[botDesc]]]
-    $setUserVar[botOwner;$authorID;$slashOption[id]]
+
+    $if[$slashOption[descrição]!=]
+    $setUserVar[botDesc;$slashOption[descrição]]
+    $setUserVar[botDesc;$slashOption[descrição];$slashOption[id]]
+    $else
+    $setUserVar[botDesc;$getVar[botDesc]]
+    $setUserVar[botDesc;$getVar[botDesc];$slashOption[id]]
+    $endif
     
+    $onlyForChannels[1076175358254120960;**:x: | <@$authorID> você só pode usar esse comando em <#1076175358254120960>!** {options:{ephemeral: true}}{extraOptions:{interaction: true}}]
     $onlyIf[$memberExists[$slashOption[id]]==false;**❌ | <@$authorID> você não pode adicionar este bot pois ele já está nesse servidor.** {options:{ephemeral: true}}{extraOptions:{interaction: true}}]
     $onlyIf[$getUserVar[totalBots]<$getUserVar[maxBots];**❌ | <@$authorID> você excedeu seu limite de bots! __Você possui__: \`$getUserVar[totalBots]/$getUserVar[maxBots] bots\`** {options:{ephemeral: true}}{extraOptions:{interaction: true}}]
     $onlyForChannels[1076175358254120960;**❌| <@$authorID> você deve usar esse comando em <#1076175358254120960>.** {options:{ephemeral: true}}{extraOptions:{interaction: true}}]
@@ -36,7 +49,7 @@ module.exports = [{
     $footer[Dev: $userTag;$userAvatar[$authorID]]
     $addButton[1;Adicionar Aqui!;link;https://discord.com/oauth2/authorize?client_id=$getUserVar[botID]&scope=bot+applications.commands&permissions=0;no;📌]
 
-    $channelSendMessage[1076178391482503229;<@$authorID>{newEmbed:{title:Bot Enviado!}{description:$username seu bot **__$userTag[$getUserVar[botID]]__** foi enviada para a análise!}{color:#2b2d31}{timestamp}{thumbnail:$userAvatar[$getUserVar[botID]]}}]
+    $channelSendMessage[1076178391482503229;<@$authorID>{newEmbed:{title:Bot Enviado!}{description:$username seu bot **__$userTag[$getUserVar[botID]]__** foi enviado para a análise!}{color:#2b2d31}{timestamp}{thumbnail:$userAvatar[$getUserVar[botID]]}}]
     `
 }, {
     type: "interaction",
