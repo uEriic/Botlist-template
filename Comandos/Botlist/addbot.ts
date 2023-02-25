@@ -6,6 +6,7 @@ module.exports = [{
     code: `
     $interactionReply[<@$authorID>;{newEmbed:{title:<a:Prints_dark:1075957686518157392> | Verifique os dados...}{field:Nome\\::\`$userTag[$getUserVar[botID]]\`:yes}{field:ID\\::\`$getUserVar[botID]\`:yes}{field:Linguagem\\::\`$replaceText[$replaceText[$replaceText[$replaceText[$getUserVar[botLang];aoijs;Aoi.js];djs;Discord.js];dpy;Discord.py];bdfd;Bot Designer For Discord]\`:yes}{field:Prefixo\\::\`$getUserVar[botPrefix]\`:yes}{field:Descrição\\::\`$getUserVar[botDesc]\`:yes}{color:#2b2d31}{thumbnail:$userAvatar[$getUserVar[botID]]}{timestamp}};{actionRow:{button:Enviar:success:enviarBot:false:✅}{button:Cancelar:danger:cancelarEnvio:false:❎}};;all;true]
     
+    $setGuildVar[botID;$slashOption[id]]
     $setUserVar[botID;$slashOption[id];$slashOption[id]]
     $setUserVar[botLang;$slashOption[linguagem];$slashOption[id]]
     $setUserVar[botPrefix;$slashOption[prefixo];$slashOption[id]]
@@ -36,6 +37,7 @@ module.exports = [{
     code: `
     $interactionUpdate[<@$authorID>;{newEmbed:{title:✅ | Sucesso! Bot enviado!}{thumbnail:$userAvatar[$getUserVar[botID]]}{color:#00FA9A}};;;all]
     
+    $setUserVar[messageID;$messageID;$getGuildVar[botID]]
     $useChannel[1076177567029153855]
     <@&1076179007940345877>
     $title[📫 | Correio!]

@@ -4,23 +4,13 @@ module.exports = [{
     name: "setar",
     $if: "old",
     code: `
-    $if[$interactionData[options._subcommand]==usuario]
-    $interactionReply[;{newEmbed:{title:✅ | VIP Adicionado com sucesso!}{description:<@$authorID> você setou um vip de 30 dias na conta de <@$slashOption[user]> com sucesso!}{color:#00FF7F}{timestamp}};;;all;false]
-    $setTimeout[vip;30d;{
-        "userID": "$slashOption[user]"
-    };false;false]
-    $giveRoles[$guildID;$timeoutData[userID];1076164397782798376]
-    $endif
+    $interactionReply[;{newEmbed:{title:✅ | VIP Adicionado com sucesso!}{description:<@$authorID> você setou um vip na conta de <@$slashOption[user]> com sucesso!}{color:#00FF7F}{timestamp}};;;all;false]
+    $setUserVar[vip;true;$slashOption[user]]
+    $giveRoles[$guildID;$slashOption[user];1076164397782798376]
 
-    $onlyIf[$interactionData[options._subcommandgroup]==vip;]
-    `
-}, {
-    type: "timeout",
-    name: "vip",
-    $if: "old",
-    code: `
-    $takeRoles[$guildID;$timeoutData[userID];1076164397782798376]
-    $if[$isUserDmEnable[$timeoutData[userID]]==true]
-    $sendDM[$timeoutData[userID];**Seu vip em \`$guildName\` acabou, você pode comprar mais usando o comando __/loja__.**]
+    $onlyIf[$isBot[$slashOption[user]]==false;**:x: | <@$authorID você deve marcar um usuário para dar vip e não um bot.** {options:{ephemeral: true}}{extraOptions:{interaction: true}}]
+    $onlyIf[$getUserVar[vip;$slashOption[user]]==false;**:x: | <@$authorID> o membro mencionado já possui vip.** {options:{ephemeral: true}}{extraOptions:{interaction: true}}]
+    $onlyForRoles[1075215458166390804;1075937595445493773;1076138471414042644;**:x: | <@$authorID> você não possui permissão para executar este comando.** {options:{ephemeral: true}}{extraOptions:{interaction: true}}]
+    $onlyIf[$interactionData[options._subcommand]==vip;]
     `
 }]

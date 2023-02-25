@@ -11,7 +11,7 @@ module.exports = {
     botPrefix: "",
     botDesc: "Nada foi informado.",
     botOwner: "",
-    botVip: false,
+    messageID: "",
     //Informações do usuário
     notas: "Nada foi informado.",    
     vip: false,
